@@ -1,2 +1,36 @@
 # rdk-on-raspberrypi
 Documentation for running RDK profiles ( Video, broadband, Camera ) on Raspberrypi boards
+
+For westeros-wpe-image to runtime test. Here are steps, please document them publicly so folks using this image
+Can try them out. These are validated on RaspberryPI3
+ 
+sudo dd if=tmp/deploy/images/raspberrypi3/westeros-wpe-image-raspberrypi3.rpi-sdimg of=/dev/sdX
+ 
+where X is the letter a,b,c which your box would have mounted the uSD card on you can check that with dmesg | tail -10
+when you insert the card into your computer.
+ 
+Once booted login as ‘root’ it has no password
+ 
+Run
+ 
+mkdir -p /var/run/user/`id -u`/
+chmod 0700 /var/run/user/`id -u`/
+export XDG_RUNTIME_DIR=/var/run/user/`id -u`/
+westeros --renderer libwesteros_render_dispmanx.so.0.0.0 --framerate 60 --display wayland-0&
+ 
+export XDG_RUNTIME_DIR=/var/run/user/`id -u`/
+export WAYLAND_DISPLAY=wayland-0
+/usr/bin/WPELauncher
+ 
+This should result in WPE launched on screen and you can try to play a video manually
+ 
+Or you can launch a video like
+ 
+/usr/bin/WPELauncher https://www.youtube.com/tv#/watch/video/control?v=-YGDyPAwQz0&resume
+ 
+which will play one video automatically
+ 
+ 
+Second test is to run big bunny video launch it like
+ 
+gst-launch-1.0 souphttpsrc location="http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_h264.mov" ! typefind ! qtdemux name=demux demux. ! queue ! h264parse ! omxh264dec ! glimagesink demux. ! queue ! faad ! autoaudiosink
