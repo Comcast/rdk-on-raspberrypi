@@ -6,7 +6,7 @@ Can try them out. These are validated on RaspberryPI3
  
  ```shell
 sudo dd if=tmp/deploy/images/raspberrypi3/westeros-wpe-image-raspberrypi3.rpi-sdimg of=/dev/sdX
- ```shell
+ ```
  
 where X is the letter a,b,c which your box would have mounted the uSD card on you can check that with dmesg | tail -10
 when you insert the card into your computer.
@@ -23,17 +23,17 @@ westeros --enableCursor --renderer libwesteros_render_dispmanx.so.0.0.0 --framer
 export XDG_RUNTIME_DIR=/var/run/user/`id -u`/
 export WAYLAND_DISPLAY=wayland-0
 /usr/bin/WPELauncher
- ```shell
+ ```
 This should result in WPE launched on screen and you can try to play a video manually
  
 Or you can launch a video like
  ```shell
 /usr/bin/WPELauncher https://www.youtube.com/tv#/watch/video/control?v=-YGDyPAwQz0&resume
- ```shell
+ ```
 which will play one video automatically
  
  
 Second test is to run big bunny video launch it like
  ```shell
 gst-launch-1.0 souphttpsrc location="http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_h264.mov" ! typefind ! qtdemux name=demux demux. ! queue ! h264parse ! omxh264dec ! glimagesink demux. ! queue ! faad ! autoaudiosink
-```shell
+```
