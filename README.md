@@ -1,6 +1,47 @@
 # rdk-on-raspberrypi
 Documentation for running RDK profiles ( Video, broadband, Camera ) on Raspberrypi boards
 
+Setting up workspace
+
+```shell
+mkdir rpi-yocto
+git clone git://git.yoctoproject.org/poky
+cd poky
+git clone git://git.openembedded.org/meta-openembedded
+git clone git://git.yoctoproject.org/meta-raspberrypi
+git clone git://github.com/metrological/meta-metrological
+
+source poky/oe-init-build-env rpi-ml-build
+
+bitbake-layers add-layer ../meta-raspberrypi
+bitbake-layers add-layer ../meta-metrological
+bitbake-layers add-layer ../meta-openembedded/meta-oe/
+bitbake-layers add-layer ../meta-openembedded/meta-multimedia/
+
+```
+
+Edit conf/local.conf
+Set Machine
+
+```shell
+MACHINE = "raspberrypi3"
+```
+
+Ignore QT
+```shell
+BBMASK = "recipes-qt"
+```
+Use 4.8 kernel
+```shell
+PREFERRED_VERSION_linux-raspberrypi = "4.8%"
+```
+
+Build WPE with Westeros Compositor
+
+```shell
+bitbake westeros-wpe-image
+```
+
 For westeros-wpe-image to runtime test. Here are steps, please document them publicly so folks using this image
 Can try them out. These are validated on RaspberryPI3
  
