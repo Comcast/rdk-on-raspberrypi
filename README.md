@@ -6,7 +6,6 @@ Setting up workspace
 ```shell
 mkdir rpi-yocto
 git clone git://git.yoctoproject.org/poky
-cd poky
 git clone git://git.openembedded.org/meta-openembedded
 git clone git://git.yoctoproject.org/meta-raspberrypi
 git clone git://github.com/metrological/meta-metrological
@@ -26,6 +25,8 @@ Set Machine
 ```shell
 MACHINE = "raspberrypi3"
 ```
+
+you can use raspberrypi2 as well if you own raspberrypi2 machine.
 
 Ignore QT
 ```shell
