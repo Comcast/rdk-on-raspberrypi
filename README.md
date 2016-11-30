@@ -96,3 +96,9 @@ resize2fs -p /dev/mmcblk0p2
 reboot
 
 ```
+
+With systemd if dhcp does not work then you have to set /etc/resolv.conf symlink correctly.
+
+```shell
+ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+```
