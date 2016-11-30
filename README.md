@@ -87,7 +87,7 @@ Add in local.conf
 ```shell
 CORE_IMAGE_EXTRA_INSTALL_append = " 96boards-tools "
 ```
-and build the image again
+and build the image again and flash it to SD-Card then run the following after firstboot.
 
 ```shell
 
