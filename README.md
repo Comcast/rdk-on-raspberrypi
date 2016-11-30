@@ -9,10 +9,12 @@ git clone git://git.yoctoproject.org/poky
 git clone git://git.openembedded.org/meta-openembedded
 git clone git://git.yoctoproject.org/meta-raspberrypi
 git clone git://github.com/metrological/meta-metrological
+git clone git://github.com/96boards/meta-96boards
 
 source poky/oe-init-build-env rpi-ml-build
 
 bitbake-layers add-layer ../meta-raspberrypi
+bitbake-layers add-layer ../meta-96boards
 bitbake-layers add-layer ../meta-metrological
 bitbake-layers add-layer ../meta-openembedded/meta-oe/
 bitbake-layers add-layer ../meta-openembedded/meta-multimedia/
@@ -78,4 +80,19 @@ which will play one video automatically
 Second test is to run big bunny video launch it like
  ```shell
 gst-launch-1.0 souphttpsrc location="http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_h264.mov" ! typefind ! qtdemux name=demux demux. ! queue ! h264parse ! omxh264dec ! glimagesink demux. ! queue ! faad ! autoaudiosink
+```
+Resize SD-Card
+
+Add in local.conf
+```shell
+CORE_IMAGE_EXTRA_INSTALL_append = " 96boards-tools "
+```
+and build the image again
+
+```shell
+
+parted /dev/mmcblk0 resizepart 2 100%
+resize2fs -p /dev/mmcblk0p2
+reboot
+
 ```
