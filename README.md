@@ -5,36 +5,30 @@ Setting up workspace
 
 ```shell
 mkdir rpi-yocto
-git clone git://git.yoctoproject.org/poky
-git clone git://git.openembedded.org/meta-openembedded
-git clone git://git.yoctoproject.org/meta-raspberrypi
+git clone git://github.com/kraj/openembedded-core
+git clone git://github.com/kraj/meta-openembedded
+git clone git://github.com/kraj/meta-raspberrypi
+git clone git://github.com/kraj/meta-96boards
+git clone git://github.com/kraj/meta-qt5 -b rdk/qt-5.1.1
 git clone git://github.com/metrological/meta-metrological
-git clone git://github.com/96boards/meta-96boards
 
 source poky/oe-init-build-env rpi-ml-build
 
 bitbake-layers add-layer ../meta-raspberrypi
 bitbake-layers add-layer ../meta-96boards
 bitbake-layers add-layer ../meta-metrological
+bitbake-layers add-layer ../meta-qt5
 bitbake-layers add-layer ../meta-openembedded/meta-oe/
 bitbake-layers add-layer ../meta-openembedded/meta-multimedia/
 
 ```
 
-Edit conf/local.conf
-Set Machine
-
-```shell
-MACHINE = "raspberrypi3"
-```
+copy the auto.conf to  conf/ directory
 
 you can use raspberrypi2 as well if you own raspberrypi2 machine.
 
-Ignore QT
-```shell
-BBMASK = "recipes-qt"
-```
-Use 4.8 kernel
+Use 4.8 kernel make this change in auto.conf
+
 ```shell
 PREFERRED_VERSION_linux-raspberrypi = "4.8%"
 ```
