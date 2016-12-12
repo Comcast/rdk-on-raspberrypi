@@ -11,6 +11,7 @@ cd openemmbedded-core; ln -s ../bitbake;cd -
 git clone git://github.com/kraj/meta-openembedded
 git clone git://github.com/kraj/meta-raspberrypi
 git clone git://github.com/kraj/meta-96boards
+git clone git://github.com/kraj/meta-himvis
 git clone git://github.com/kraj/meta-qt5 -b rdk/qt-5.1.1
 git clone git://github.com/metrological/meta-metrological
 
@@ -19,6 +20,7 @@ source openembedded-core/oe-init-build-env rpi-ml-build
 bitbake-layers add-layer ../meta-raspberrypi
 bitbake-layers add-layer ../meta-96boards
 bitbake-layers add-layer ../meta-metrological
+bitbake-layers add-layer ../meta-himvis
 bitbake-layers add-layer ../meta-qt5
 bitbake-layers add-layer ../meta-openembedded/meta-oe/
 bitbake-layers add-layer ../meta-openembedded/meta-multimedia/
