@@ -79,6 +79,18 @@ Second test is to run big bunny video launch it like
  ```shell
 gst-launch-1.0 souphttpsrc location="http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_h264.mov" ! typefind ! qtdemux name=demux demux. ! queue ! h264parse ! omxh264dec ! glimagesink demux. ! queue ! faad ! autoaudiosink
 ```
+
+Run QT5 demo (with wayland/westeros)
+
+ ```shell
+Qt5_CinematicExperience -platform wayland-egl
+```
+
+Run QT5 demo (with eglfs)
+
+ ```shell
+Qt5_CinematicExperience -platform eglfs -evdev
+```
 Resize SD-Card
 
 Add in local.conf
