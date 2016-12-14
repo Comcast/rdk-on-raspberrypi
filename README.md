@@ -91,6 +91,24 @@ Run QT5 demo (with eglfs)
  ```shell
 Qt5_CinematicExperience -platform eglfs -evdev
 ```
+
+Building QT5 application on Pi
+
+Copy the qt.conf file into /usr/bin/qt5/qt.conf
+secondly put envsetup.sh in $HOME
+
+```shell
+source ${HOME}/envsetup.sh
+cd <your-app>
+qmake
+make
+```
+
+If the build complains about missing .h files then you will need to install development headers and libraries e.g.
+```shell
+opkg install qtbase-dev
+```
+
 Resize SD-Card
 
 Add in local.conf
