@@ -43,9 +43,11 @@ Build WPE with Westeros Compositor
 bitbake westeros-wpe-image
 ```
 
-For westeros-wpe-image to runtime test. Here are steps, please document them publicly so folks using this image
-Can try them out. These are validated on RaspberryPI3
- 
+Flash SD-Card with Rpi Image
+
+Note: Ensure that card is unmounted before below operation. Some OSes will mount the existing partitions
+automatically on inserting the card. So umount them manually.
+
  ```shell
 sudo dd if=tmp/deploy/images/raspberrypi3/westeros-wpe-image-raspberrypi3.rpi-sdimg of=/dev/sdX
  ```
