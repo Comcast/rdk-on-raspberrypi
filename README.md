@@ -8,16 +8,16 @@ mkdir rpi-yocto
 git clone git://git.yoctoproject.org/poky
 git clone git://git.openembedded.org/meta-openembedded
 git clone git://git.yoctoproject.org/meta-raspberrypi
-git clone git://github.com/metrological/meta-metrological
+git clone git://github.com/WebPlatformForEmbedded/meta-wpe
 git clone git://github.com/96boards/meta-96boards
 
 source poky/oe-init-build-env rpi-ml-build
 
 bitbake-layers add-layer ../meta-raspberrypi
 bitbake-layers add-layer ../meta-96boards
-bitbake-layers add-layer ../meta-metrological
-bitbake-layers add-layer ../meta-openembedded/meta-oe/
-bitbake-layers add-layer ../meta-openembedded/meta-multimedia/
+bitbake-layers add-layer ../meta-wpe
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-multimedia
 
 ```
 
