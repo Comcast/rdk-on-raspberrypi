@@ -42,7 +42,7 @@ PREFERRED_VERSION_linux-raspberrypi = "4.9%"
 Build WPE with Westeros Compositor
 
 ```shell
-bitbake westeros-wpe-image
+bitbake wpe-westeros-image
 ```
 
 For westeros-wpe-image to runtime test. Here are steps, please document them publicly so folks using this image
