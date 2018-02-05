@@ -16,6 +16,7 @@ source poky/oe-init-build-env rpi-ml-build
 bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-multimedia
 bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-openembedded/meta-networking
 bitbake-layers add-layer ../meta-raspberrypi
 bitbake-layers add-layer ../meta-96boards
 bitbake-layers add-layer ../meta-wpe
