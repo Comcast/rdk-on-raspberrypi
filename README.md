@@ -35,10 +35,6 @@ Ignore QT
 ```shell
 BBMASK = "recipes-qt"
 ```
-Use 4.9 kernel
-```shell
-PREFERRED_VERSION_linux-raspberrypi = "4.9%"
-```
 
 Build WPE with Westeros Compositor
 
