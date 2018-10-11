@@ -35,7 +35,10 @@ Ignore QT
 ```shell
 BBMASK = "recipes-qt"
 ```
-
+Remove X11 from distro features
+```shell
+DISTRO_FEATURES_remove_rpi = "x11"
+```
 Build WPE with Westeros Compositor
 
 ```shell
